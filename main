@@ -80,7 +80,7 @@ def  Nth_fibonacci_number():
             return n
         return Nth_fibonacci(n - 1) + Nth_fibonacci(n - 2)
 
-    n = int(input(f'n: '))
+    n = int(input(f'n: ')) 
     ans = Nth_fibonacci(n)
     print(f'{n}th fobonacci number is: {ans}')
 
@@ -103,5 +103,4 @@ def palindrome_substrings_counter():
     pass
 
 
-print('hi')
 Nth_fibonacci_number()
