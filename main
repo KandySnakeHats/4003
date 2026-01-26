@@ -130,7 +130,7 @@ def palindrome_substrings_counter():
     pass
 
 
-sorting()
+sorting_sel()
 
 time.stop
 print(time)
