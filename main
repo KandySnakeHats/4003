@@ -85,7 +85,29 @@ def  Nth_fibonacci_number():
     print(f'{n}th fobonacci number is: {ans}')
 
 def sorting():
-    pass
+    def selection_sort(nums):
+        n = len(nums)
+        for p in range(n - 1):
+            min_index = p
+            
+            for q in range(p + 1, n):
+                if nums[q] < nums[min_index]:
+                    min_index = q
+        
+        nums[p], nums[min_index] = nums[min_index], nums[p]
+
+    nums = []
+    numb = input(f'number: ')
+    while numb != '':
+        nums.append(numb)
+        numb = input(f'number: ')
+
+
+    print(f'list: {nums}')
+        
+    selection_sort(nums)
+        
+    print(f'sorted list: {nums}')
 
 def brute_force():
     pass
@@ -103,4 +125,4 @@ def palindrome_substrings_counter():
     pass
 
 
-Nth_fibonacci_number()
+sorting()
