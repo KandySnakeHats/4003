@@ -1,5 +1,78 @@
+
 def encryption():
-    pass
+    def power(base, expo, message):
+        res = 1
+        base = base % message
+        while expo > 0:
+            if expo & 1:
+                res = (res * base) % message
+            base = (base * base) % message
+            expo = expo // 2
+        return res
+    
+    def mod_inverse(e, phi):
+        for d in range(2, phi):
+            if (e * d) % phi == 1:
+                return d
+        return -1
+
+    def generate_keys():
+        key_1 = 7919
+        key_2  = 1009
+        
+        numb = key_1 * key_2
+        phi = (key_1 - 1) * (key_2 - 1)
+
+        i = 0
+        for i in range(2, phi):
+            if gcd(i, phi) == 1:
+                break
+
+        inv = mod_inverse(i, phi)
+
+        return i, inv, numb
+
+    def gcd(a, b):
+        while b != 0:
+            a, b = b, a % b
+        return a
+
+    def encrypt(message, i, num):
+        return power(message, i, num)
+
+    def decrypt(c, inv, num):
+        return power(c, inv, num)
+
+
+    i, inv, num = generate_keys()
+    ans = ''
+    while ans not in ['yes','no']:
+        ans = input('own keys: ')
+        if ans == 'yes':
+            i = input(f'public key: ')
+            inv = input(f'inverse: ')
+    
+    print(f"Public Key: ({i}, {num})")
+    print(f"Private Key: ({inv}, {num})")
+
+    message = 987
+
+    ans = ''
+    while ans == '':
+        ans = input('Input own message: ')
+        if ans == 'yes':
+            message = int(input(f'Message: '))
+    print(f"Message: {message}")
+
+    ans = ''
+    while ans not in ['encrypt','decrypt']:
+        ans = input('encrypt or decrypt: ')
+        if ans == 'encrypt':
+            C = encrypt(message, i, num)
+            print(f"Encrypted Message: {C}")
+        elif ans == 'decrypt':
+            decrypted = decrypt(C, inv, num)
+            print(f"Decrypted Message: {decrypted}")
 
 def  Nth_fibonacci_number():
     pass
@@ -22,3 +95,5 @@ def search():
 def palindrome_substrings_counter():
     pass
 
+
+encryption()
