@@ -1,3 +1,5 @@
+import time
+time.start
 
 def encryption():
     def power(base, expo, message):
@@ -84,7 +86,7 @@ def  Nth_fibonacci_number():
     ans = Nth_fibonacci(n)
     print(f'{n}th fobonacci number is: {ans}')
 
-def sorting():
+def sorting_sel():
     def selection_sort(nums):
         n = len(nums)
         for p in range(n - 1):
@@ -109,6 +111,9 @@ def sorting():
         
     print(f'sorted list: {nums}')
 
+def sorting_bub():
+    pass
+
 def brute_force():
     pass
 
@@ -126,3 +131,6 @@ def palindrome_substrings_counter():
 
 
 sorting()
+
+time.stop
+print(time)
