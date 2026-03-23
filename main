@@ -166,7 +166,13 @@ def search():
         pass            
 
 
-    numbers = [1,5,3]
+    numbers = []
+    num = input(f'Number: ')
+    while num != '' or len(numbers)==0:
+        num = input(f'Number, enter to end: ')
+        if num.isnumeric():
+            numbers.append(int(num))
+    print(numbers)
     print(f'Largest: {largest(numbers)}, Smallest: {smallest(numbers)}, mode: {mode(numbers)}, median: {median(numbers)}, IQR1: {IQR1(numbers)}, IQR3: {IQR3(numbers)}')
 
 def palindrome_substrings_counter():
