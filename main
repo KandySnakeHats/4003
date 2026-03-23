@@ -112,6 +112,8 @@ def sorting_sel():
 def sorting_bub():
     numbers = []
     num = input(f'Number: ')
+    if num.isnumeric():
+            numbers.append(int(num))
     while num != '' or len(numbers)==0:
         num = input(f'Number, enter to end: ')
         if num.isnumeric():
@@ -129,8 +131,26 @@ def sorting_bub():
             break  
     print(f'sorted: {numbers}')
 
-def brute_force():
-    pass
+def sorting_brute_force():
+    numbers = []
+    num = input(f'Number: ')
+    if num.isnumeric():
+            numbers.append(int(num))
+    while num != '' or len(numbers)==0:
+        num = input(f'Number, enter to end: ')
+        if num.isnumeric():
+            numbers.append(int(num))
+    print(numbers)
+
+    if in_order(numbers):
+        return numbers
+
+    def in_order(numbers):
+        for i in range(0, len(numbers)):
+            for j in range(0, len(numbers)):
+                if numbers[i] > numbers[j]:
+                    return False
+        return True
 
 def randomised():
     pass
@@ -185,6 +205,8 @@ def search():
 
     numbers = []
     num = input(f'Number: ')
+    if num.isnumeric():
+            numbers.append(int(num))
     while num != '' or len(numbers)==0:
         num = input(f'Number, enter to end: ')
         if num.isnumeric():
