@@ -1,5 +1,5 @@
 import time
-time.start
+time.start()
 
 def encryption():
     def power(base, expo, message):
@@ -127,10 +127,29 @@ def search():
     pass
 
 def palindrome_substrings_counter():
-    pass
+    def find_palindome(string, left, right):
+        while left < right:
+            if string[left] != string[right]:
+                return False
+            left = left + 1
+            right = right - 1
+        return True
+
+    def palindrone_count(string):
+        number = len(string)
+        res = 0
+        for left in range(number):
+            for right in range((left + 1), number):
+                if find_palindome(string, left, right):
+                    res = res + 1
+
+        return res
+    
+    string = input(f'String: ')
+    print(f'Number of palindrones is: {palindrone_count(string)}')
 
 
-sorting_sel()
+palindrome_substrings_counter()
 
-time.stop
-print(time)
+time.stop()
+print(time_to_complete)
