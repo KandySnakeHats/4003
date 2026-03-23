@@ -1,5 +1,5 @@
 import time
-time.start()
+#time.start()
 
 def encryption():
     def power(base, expo, message):
@@ -106,9 +106,7 @@ def sorting_sel():
 
 
     print(f'list: {nums}')
-        
     selection_sort(nums)
-        
     print(f'sorted list: {nums}')
 
 def sorting_bub():
@@ -123,10 +121,64 @@ def randomised():
 def recursion():
     pass
 
+#largest, smallest, mode, median, 1st IQF & 3rd IQF of an array.
 def search():
-    pass
+    def largest(numbers):
+        numb = -9999999999999999999999999
+        for i in range(0,len(numbers)):
+            if numbers[i] > numb:
+                numb = numbers[i]
+        return numb
+    
+    def smallest(numbers):
+        numb = 9999999999999999999999999999
+        for i in range(0,len(numbers)):
+            if numbers[i] < numb:
+                numb = numbers[i]
+        return numb
+    
+    def mode(numbers):
+        numb = 0
+        mode_numb = 0
+        for i in range(0,len(numbers)):
+            number = 0
+            for j in range(0,len(numbers)):
+                if numbers[i] == numbers[j]:
+                    number = number + 1
+            if number > numb:
+                numb = number
+                mode_numb = numbers[i]
+        return mode_numb
+                
+    def median(numbers):
+        numbers.sort()
+        total = len(numbers)
+        if total % 2 == 0:
+            med = (numbers[total//2 - 1] + numbers[total//2]) / 2
+        else:
+            med = numbers[total//2]
+        return med
+
+    def IQR1(numbers):
+        pass
+
+    def IQR3(numbers):
+        pass            
+
+
+    numbers = [1,5,3]
+    print(f'Largest: {largest(numbers)}, Smallest: {smallest(numbers)}, mode: {mode(numbers)}, median: {median(numbers)}, IQR1: {IQR1(numbers)}, IQR3: {IQR3(numbers)}')
 
 def palindrome_substrings_counter():
+    def palindrone_count(string):
+        number = len(string)
+        result = 0
+        for left in range(number):
+            for right in range((left + 1), number):
+                if find_palindome(string, left, right):
+                    result = result + 1
+        return result
+    
     def find_palindome(string, left, right):
         while left < right:
             if string[left] != string[right]:
@@ -134,22 +186,13 @@ def palindrome_substrings_counter():
             left = left + 1
             right = right - 1
         return True
-
-    def palindrone_count(string):
-        number = len(string)
-        res = 0
-        for left in range(number):
-            for right in range((left + 1), number):
-                if find_palindome(string, left, right):
-                    res = res + 1
-
-        return res
     
     string = input(f'String: ')
+    print(string)
     print(f'Number of palindrones is: {palindrone_count(string)}')
 
 
-palindrome_substrings_counter()
+search()
 
-time.stop()
-print(time_to_complete)
+#time.stop()
+#print(time)
